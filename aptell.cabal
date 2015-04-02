@@ -1,7 +1,7 @@
 -- created:          2015-04-02
 name:                aptell
 version:             0.1.0.0
-synopsis:            Library for migrating ANTLR parse trees to Haskell
+synopsis:            Library for migrating parse trees (e.g. created by ANTLR) to Haskell
 homepage:            https://github.com/kongra/aptell
 license:             BSD3
 license-file:        LICENSE

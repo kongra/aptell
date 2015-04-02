@@ -1,2 +1,2 @@
 # aptell
-Library for migrating ANTLR parse trees to Haskell
+Library for migrating parse trees (e.g. created by ANTLR) to Haskell
