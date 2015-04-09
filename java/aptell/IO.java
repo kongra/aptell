@@ -1,4 +1,4 @@
-package kongra.aptell;
+package aptell;
 
 import java.io.DataOutputStream;
 import java.io.IOException;

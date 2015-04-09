@@ -1,4 +1,4 @@
-package kongra.aptell;
+package aptell;
 
 /**
  * @author  kongra

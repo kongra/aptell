@@ -18,7 +18,7 @@ library
   if impl(ghc >= 6.8)
     ghc-options:     -fwarn-tabs
 
-  exposed-modules:   Data.Parse.Read
+  exposed-modules:   Aptell.Data
 
   other-extensions:  Safe
   build-depends:     base >=4.7 && <4.8
