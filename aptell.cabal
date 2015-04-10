@@ -19,17 +19,20 @@ library
     ghc-options:     -fwarn-tabs
 
   exposed-modules:   Aptell.Data
+                     Aptell.Print
+                     Aptell.Java
 
   other-extensions:  Safe
-  build-depends:     base >=4.7 && <4.8
-                   , bytestring >= 0.10.4.0
-                   , binary >= 0.7.1.0
+  build-depends:     base                 >=4.7 && <4.8
+                   , bytestring           >= 0.10.4.0
+                   , binary               >= 0.7.1.0
                    , unordered-containers >= 0.2.5.0
-                   , hashable >= 1.2.2.0
-                   , text >= 1.2.0.4
-                   , safe >= 0.3.8
-                   -- , kask-base >= 0.1.0
-                   -- , treeprint >= 0.1.0
+                   , hashable             >= 1.2.2.0
+                   , text                 >= 1.2.0.4
+                   , mtl                  >= 2.2.1
+                   , safe                 >= 0.3.8
+                   , treeprint            >= 0.1.0
+                   , kask-base            >= 0.1.0
 
   hs-source-dirs:    haskell
   default-language:  Haskell2010

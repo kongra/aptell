@@ -4,19 +4,24 @@
 -- Module      : Aptell.Data
 -- Copyright   : (c) 2015 Konrad Grzanek
 -- License     : BSD-style (see the file LICENSE)
--- Created     : 2015-03-02
+-- Created     : 2015-04-02
 -- Maintainer  : kongra@gmail.com
 -- Stability   : experimental
 ------------------------------------------------------------------------
-module Aptell.Data where
+module Aptell.Data
+    (
+      Node (..)
+    , Code2Rule
+    , parseForest
+    )
+    where
 
--- 25,26 kwietnia, 17 maja
-
--- import qualified Data.ByteString.Lazy as B
--- import           Data.Binary.Get
--- import           Data.Word
-
-import qualified Data.Text as T
+import           Control.Monad (liftM)
+import qualified Data.Binary.Get      as G
+import qualified Data.ByteString.Lazy as B
+import qualified Data.HashMap.Strict  as M
+import qualified Data.Text            as T
+import qualified Data.Text.Encoding   as E
 
 -- | Unified parse-tree node.
 data Node a =
@@ -33,32 +38,59 @@ data Node a =
   , nodeChildren :: ![Node a]
   }
 
+isTerminal :: Node a -> Bool
+isTerminal Terminal    {} = True
+isTerminal NonTerminal {} = False
+{-# INLINE isTerminal #-}
 
--- lorem :: String
--- lorem = "ąęśćółżźńLorem ipsum dolor sit amet, consectetur adipisicing elit."
+-- DE-SERIALIZATION OF ANTLR PARSE-TREES
 
--- readRecord :: Get (Word8, Word32, Word32, String)
--- readRecord = do
---   b <- getWord8
---   w <- getWord32be
---   l <- getWord32be
+-- | Returns a rule representation for a given integral code.
+type Code2Rule a = Int -> a
 
---   s <- getByteString (fromIntegral l)
---   let s1 = T.unpack $ E.decodeUtf8 s
+-- | Reads Aptl file (given as its path) and returns its representation.
+parseForest :: Code2Rule a -> String -> IO [Node a]
+parseForest c2r file = liftM (hierarchy M.empty . reverse) (flatNodes c2r file)
 
---   return (b, w, l, s1)
+flatNodes :: Code2Rule a -> String -> IO [(Int, Node a)]
+flatNodes c2r file = liftM (G.runGet (getFlatNodes c2r)) (B.readFile file)
+{-# INLINE flatNodes #-}
 
--- main :: IO ()
--- main = do
---   contents <- B.readFile "/home/kongra/Pulpit/IO/IO.log"
---   let r            = runGet readRecord contents
---       (b, w, l, s) = r
---   putStrLn $ show b
---   putStrLn $ show w
---   putStrLn $ show l
---   putStrLn s
---   putStrLn lorem
+getFlatNodes :: Code2Rule a -> G.Get [(Int, Node a)]
+getFlatNodes c2r = do
+  eof <- G.isEmpty
+  if eof
+    then return []
+    else do
+      level <- G.getWord32be
+      code  <- G.getWord32be
+      node  <- case code of
+        0 -> do  -- 0 is a terminal, see IO.java l. 35
+          line <- G.getWord32be
+          pos  <- G.getWord32be
+          len  <- G.getWord32be
+          txt  <- G.getByteString (fromIntegral len)
+          return $! Terminal (fromIntegral line)
+                             (fromIntegral pos )
+                             (E.decodeUtf8 txt )
 
---   putStrLn $ show (lorem == s)
---   print (length lorem)
---   print (length s)
+        _ -> return $! NonTerminal (c2r (fromIntegral code)) []
+
+      liftM ((fromIntegral level, node):) (getFlatNodes c2r)
+
+type Level2Children a = M.HashMap Int [Node a]
+
+hierarchy ::  Level2Children a -> [(Int, Node a)] -> [Node a]
+hierarchy l2ch []                 = M.lookupDefault [] 0 l2ch
+hierarchy l2ch ((level, node):ns) = hierarchy l2ch2 ns
+  where
+    -- 1. Update node with children; nodes for current level.
+    node' = if isTerminal node then node
+            else node { nodeChildren = M.lookupDefault [] level l2ch }
+
+    -- 2. Clear children for current level.
+    l2ch1 = M.delete level l2ch
+
+    -- 3. Register updated node as a child for level-1.
+    childrenAbove = M.lookupDefault [] (level-1) l2ch1
+    l2ch2         = M.insert (level-1) (node':childrenAbove) l2ch1
