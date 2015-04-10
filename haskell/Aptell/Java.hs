@@ -8,10 +8,25 @@
 -- Maintainer  : kongra@gmail.com
 -- Stability   : experimental
 ------------------------------------------------------------------------
-module Aptell.Java where
+module Aptell.Java
+    (
+      -- * Core
+      Rule (..)
+    , parseTree
 
-import Aptell.Data
-import Control.Monad (liftM)
+      -- * Presentation, printing.
+    , toString
+    , toStringD
+    , fileToString
+    , fileToStringD
+    , printFile
+    , printFileD
+    )
+    where
+
+import           Aptell.Data
+import qualified Aptell.Print as P
+import           Control.Monad (liftM)
 
 -- | Represents ANTLR rules (non-terminals) for Java.g4 grammar.
 data Rule =
@@ -227,6 +242,28 @@ javaRule _   = error "PANIC (1): Should not happen."
 parseTree :: String -> IO (Node Rule)
 parseTree = liftM head . parseForest javaRule
 
--- test1 :: IO (Node Rule)
--- test1 = parseTree
---         "/home/kongra/Pulpit/JDK7/aptell/java/beans/EventSetDescriptor.java.aptl"
+-- | Returns a pretty-printed tree represented by the root node.
+toString :: Bool -> Node Rule -> String
+toString = P.toString shows
+
+-- | Works like toString but allows to pass a maximal depth.
+toStringD :: Int -> Bool -> Node Rule -> String
+toStringD = P.toStringD shows
+
+-- | Returns a pretty-printed tree from the file.
+fileToString :: Bool -> String -> IO String
+fileToString printLocations = liftM (toString printLocations) . parseTree
+
+-- | Works like fileToString but allows to pass a maximal depth.
+fileToStringD :: Int -> Bool -> String -> IO String
+fileToStringD depth printLocations =
+  liftM (toStringD depth printLocations) . parseTree
+
+-- | Prints a pretty-printed tree from the file.
+printFile :: Bool -> String -> IO ()
+printFile printLocations file = fileToString printLocations file >>= putStrLn
+
+-- | Works like printFile but allows to pass a maximal depth.
+printFileD :: Int -> Bool -> String -> IO ()
+printFileD depth printLocations file =
+  fileToStringD depth printLocations file >>= putStrLn
