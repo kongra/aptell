@@ -236,7 +236,7 @@ javaRule 99  = Creator
 javaRule 100 = CreatedName
 javaRule 101 = InnerCreator
 javaRule 102 = ArrayCreatorRest
-javaRule _   = error "PANIC (1): Should not happen."
+javaRule c   = error ("PANIC (1): ILLEGAL javaRule CODE " ++ show c)
 
 -- | Returns a Java parse tree read from an aptell file.
 parseTree :: String -> IO (Node Rule)
