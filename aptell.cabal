@@ -23,7 +23,7 @@ library
                      Aptell.Java
 
   other-extensions:  Safe
-  build-depends:     base                 >=4.7 && <4.8
+  build-depends:     base                 >= 4.7
                    , bytestring           >= 0.10.4.0
                    , binary               >= 0.7.1.0
                    , unordered-containers >= 0.2.5.0
