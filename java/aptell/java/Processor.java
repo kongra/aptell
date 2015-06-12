@@ -20,14 +20,16 @@ import aptell.java.JavaParser.CompilationUnitContext;
  */
 public class Processor {
 
-  public static void process(String file, String srcDir, String targetDir) {
-    System.out.print("Processing " + file + " ... ");
+  public static void process(String file, int i, int n, String srcDir,
+      String targetDir) {
+    System.out.print("Processing " + i + "/" + n + " " + file + " ... ");
     Stopwatch timer = Stopwatch.start();
 
     try (InputStream in = new FileInputStream(new File(file))) {
       JavaLexer lexer = new JavaLexer(new ANTLRInputStream(in));
       CommonTokenStream tokStream = new CommonTokenStream(lexer);
       JavaParser parser = new JavaParser(tokStream);
+
       CompilationUnitContext tree = parser.compilationUnit();
       ParseTreeWalker walker = new ParseTreeWalker();
 
@@ -52,8 +54,9 @@ public class Processor {
   public static void main(String... args) {
     String srcDir = args[0];
     String targetDir = args[1];
+
     for (int i = 2; i < args.length; i++) {
-      process(args[i], srcDir, targetDir);
+      process(args[i], i, args.length, srcDir, targetDir);
     }
   }
 }

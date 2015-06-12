@@ -70,9 +70,9 @@ getFlatNodes c2r = do
           pos  <- G.getWord32be
           len  <- G.getWord32be
           txt  <- G.getByteString (fromIntegral len)
-          return $! Terminal (fromIntegral line)
-                             (fromIntegral pos )
-                             (E.decodeUtf8 txt )
+          return $! Terminal      (fromIntegral line)
+                                  (fromIntegral pos )
+                                  (E.decodeUtf8 txt )
 
         _ -> return $! NonTerminal (c2r (fromIntegral code)) []
 

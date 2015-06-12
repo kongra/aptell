@@ -30,7 +30,7 @@ import           Control.Monad (liftM)
 
 -- | Represents ANTLR rules (non-terminals) for Java.g4 grammar.
 data Rule =
-  CompilationUnit
+    CompilationUnit
   | PackageDeclaration
   | ImportDeclaration
   | TypeDeclaration
