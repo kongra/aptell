@@ -1,6 +1,6 @@
 // Generated from src/antlr4/Java8.g4 by ANTLR 4.6
 
-package aptasem.antlr4.java8;
+package aptell.antlr4.java8;
 
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
