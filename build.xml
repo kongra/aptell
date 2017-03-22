@@ -13,7 +13,7 @@
 
     <property name="module.dir"        value="aptell"/>
     <property name="name"              value="aptell"/>
-    <property name="java-src.dir"      value="java/"/>
+    <property name="java-src.dir"      value="src/java/"/>
     <property name="lib.dir"           value="lib/"/>
     <property name="build.dir"         value="classes/"/>
     <property name="build.compiler"    value="modern"/>
