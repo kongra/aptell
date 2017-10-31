@@ -5,8 +5,13 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.ref.Reference;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.concurrent.atomic.AtomicInteger;
 
-import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
@@ -26,7 +31,7 @@ public class Processor {
     Stopwatch timer = Stopwatch.start();
 
     try (InputStream in = new FileInputStream(new File(file))) {
-      Java9Lexer lexer = new Java9Lexer(new ANTLRInputStream(in));
+      Java9Lexer lexer = new Java9Lexer(CharStreams.fromStream(in));
       CommonTokenStream tokStream = new CommonTokenStream(lexer);
       Java9Parser parser = new Java9Parser(tokStream);
 
@@ -52,11 +57,28 @@ public class Processor {
   }
 
   public static void main(String... args) {
-    String srcDir = args[0];
+    String srcDir    = args[0];
     String targetDir = args[1];
 
-    for (int i = 2; i < args.length; i++) {
-      process(args[i], i, args.length, srcDir, targetDir);
+    try {
+      final AtomicInteger count = new AtomicInteger(0);
+      Files.walk(Paths.get(srcDir)).filter(Files::isRegularFile).forEach((Path p) -> {
+        if (p.toFile().getName().endsWith(".java")) count.incrementAndGet();
+      });
+
+      final AtomicInteger i = new AtomicInteger(0);
+      Files.walk(Paths.get(srcDir)).filter(Files::isRegularFile).forEach((Path p) -> {
+        if (p.toFile().getName().endsWith(".java")) {
+          process(p.toString(), i.incrementAndGet(), count.get(), srcDir, targetDir);
+        }
+      });
+
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+
+//    for (int i = 2; i < args.length; i++) {
+//      process(args[i], i, args.length, srcDir, targetDir);
+//    }
   }
 }
