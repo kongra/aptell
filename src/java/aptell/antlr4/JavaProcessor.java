@@ -16,6 +16,7 @@ import aptell.antlr4.java8.Processor8Listener;
 import aptell.antlr4.java9.Java9Lexer;
 import aptell.antlr4.java9.Java9Parser;
 import aptell.antlr4.java9.Processor9Listener;
+import org.antlr.v4.runtime.BailErrorStrategy;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
@@ -47,6 +48,8 @@ public class JavaProcessor {
       Java8Lexer lexer = new Java8Lexer(CharStreams.fromStream(in));
       CommonTokenStream tokStream = new CommonTokenStream(lexer);
       Java8Parser parser = new Java8Parser(tokStream);
+      parser.removeErrorListeners();
+      parser.setErrorHandler(new BailErrorStrategy());
 
       Java8Parser.CompilationUnitContext tree = parser.compilationUnit();
       ParseTreeWalker walker = new ParseTreeWalker();
@@ -75,6 +78,8 @@ public class JavaProcessor {
       Java9Lexer lexer = new Java9Lexer(CharStreams.fromStream(in));
       CommonTokenStream tokStream = new CommonTokenStream(lexer);
       Java9Parser parser = new Java9Parser(tokStream);
+      parser.removeErrorListeners();
+      parser.setErrorHandler(new BailErrorStrategy());
 
       Java9Parser.CompilationUnitContext tree = parser.compilationUnit();
       ParseTreeWalker walker = new ParseTreeWalker();
