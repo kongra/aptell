@@ -1,6 +1,7 @@
 package aptell.antlr4.java9;
 
 import aptell.antlr4.IO;
+import aptell.antlr4.JavaNonTerminal;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
@@ -8,11 +9,11 @@ import org.antlr.v4.runtime.tree.TerminalNode;
  * @author kongra
  * @created 2017-10-30
  */
-public class ProcessorListener extends Java9BaseListener {
+public class Processor9Listener extends Java9BaseListener {
 
   private final IO io;
 
-  ProcessorListener(IO io) {
+  public Processor9Listener(IO io) {
     this.io = io;
   }
 
@@ -23,7 +24,7 @@ public class ProcessorListener extends Java9BaseListener {
     io.popLevel();
   }
 
-  public void enter(NonTerminal nonTerm) {
+  public void enter(JavaNonTerminal nonTerm) {
     io.pushLevel();
     io.writeNonTerminal(nonTerm.code);
   }
@@ -39,1226 +40,1226 @@ public class ProcessorListener extends Java9BaseListener {
 
   @Override
   public void enterAdditionalBound(Java9Parser.AdditionalBoundContext ctx) {
-    enter(NonTerminal.AdditionalBound);
+    enter(JavaNonTerminal.AdditionalBound);
   }
 
   @Override
   public void enterAdditiveExpression(Java9Parser.AdditiveExpressionContext ctx) {
-    enter(NonTerminal.AdditiveExpression);
+    enter(JavaNonTerminal.AdditiveExpression);
   }
 
   @Override
   public void enterAmbiguousName(Java9Parser.AmbiguousNameContext ctx) {
-    enter(NonTerminal.AmbiguousName);
+    enter(JavaNonTerminal.AmbiguousName);
   }
 
   @Override
   public void enterAndExpression(Java9Parser.AndExpressionContext ctx) {
-    enter(NonTerminal.AndExpression);
+    enter(JavaNonTerminal.AndExpression);
   }
 
   @Override
   public void enterAnnotation(Java9Parser.AnnotationContext ctx) {
-    enter(NonTerminal.Annotation);
+    enter(JavaNonTerminal.Annotation);
   }
 
   @Override
   public void enterAnnotationTypeBody(Java9Parser.AnnotationTypeBodyContext ctx) {
-    enter(NonTerminal.AnnotationTypeBody);
+    enter(JavaNonTerminal.AnnotationTypeBody);
   }
 
   @Override
   public void enterAnnotationTypeDeclaration(Java9Parser.AnnotationTypeDeclarationContext ctx) {
-    enter(NonTerminal.AnnotationTypeDeclaration);
+    enter(JavaNonTerminal.AnnotationTypeDeclaration);
   }
 
   @Override
   public void enterAnnotationTypeElementDeclaration(Java9Parser.AnnotationTypeElementDeclarationContext ctx) {
-    enter(NonTerminal.AnnotationTypeElementDeclaration);
+    enter(JavaNonTerminal.AnnotationTypeElementDeclaration);
   }
 
   @Override
   public void enterAnnotationTypeElementModifier(Java9Parser.AnnotationTypeElementModifierContext ctx) {
-    enter(NonTerminal.AnnotationTypeElementModifier);
+    enter(JavaNonTerminal.AnnotationTypeElementModifier);
   }
 
   @Override
   public void enterAnnotationTypeMemberDeclaration(Java9Parser.AnnotationTypeMemberDeclarationContext ctx) {
-    enter(NonTerminal.AnnotationTypeMemberDeclaration);
+    enter(JavaNonTerminal.AnnotationTypeMemberDeclaration);
   }
 
   @Override
   public void enterArgumentList(Java9Parser.ArgumentListContext ctx) {
-    enter(NonTerminal.ArgumentList);
+    enter(JavaNonTerminal.ArgumentList);
   }
 
   @Override
   public void enterArrayAccess(Java9Parser.ArrayAccessContext ctx) {
-    enter(NonTerminal.ArrayAccess);
+    enter(JavaNonTerminal.ArrayAccess);
   }
 
   @Override
   public void enterArrayAccess_lf_primary(Java9Parser.ArrayAccess_lf_primaryContext ctx) {
-    enter(NonTerminal.ArrayAccess_lf_primary);
+    enter(JavaNonTerminal.ArrayAccess_lf_primary);
   }
 
   @Override
   public void enterArrayAccess_lfno_primary(Java9Parser.ArrayAccess_lfno_primaryContext ctx) {
-    enter(NonTerminal.ArrayAccess_lfno_primary);
+    enter(JavaNonTerminal.ArrayAccess_lfno_primary);
   }
 
   @Override
   public void enterArrayCreationExpression(Java9Parser.ArrayCreationExpressionContext ctx) {
-    enter(NonTerminal.ArrayCreationExpression);
+    enter(JavaNonTerminal.ArrayCreationExpression);
   }
 
   @Override
   public void enterArrayInitializer(Java9Parser.ArrayInitializerContext ctx) {
-    enter(NonTerminal.ArrayInitializer);
+    enter(JavaNonTerminal.ArrayInitializer);
   }
 
   @Override
   public void enterArrayType(Java9Parser.ArrayTypeContext ctx) {
-    enter(NonTerminal.ArrayType);
+    enter(JavaNonTerminal.ArrayType);
   }
 
   @Override
   public void enterAssertStatement(Java9Parser.AssertStatementContext ctx) {
-    enter(NonTerminal.AssertStatement);
+    enter(JavaNonTerminal.AssertStatement);
   }
 
   @Override
   public void enterAssignment(Java9Parser.AssignmentContext ctx) {
-    enter(NonTerminal.Assignment);
+    enter(JavaNonTerminal.Assignment);
   }
 
   @Override
   public void enterAssignmentExpression(Java9Parser.AssignmentExpressionContext ctx) {
-    enter(NonTerminal.AssignmentExpression);
+    enter(JavaNonTerminal.AssignmentExpression);
   }
 
   @Override
   public void enterAssignmentOperator(Java9Parser.AssignmentOperatorContext ctx) {
-    enter(NonTerminal.AssignmentOperator);
+    enter(JavaNonTerminal.AssignmentOperator);
   }
 
   @Override
   public void enterBasicForStatement(Java9Parser.BasicForStatementContext ctx) {
-    enter(NonTerminal.BasicForStatement);
+    enter(JavaNonTerminal.BasicForStatement);
   }
 
   @Override
   public void enterBasicForStatementNoShortIf(Java9Parser.BasicForStatementNoShortIfContext ctx) {
-    enter(NonTerminal.BasicForStatementNoShortIf);
+    enter(JavaNonTerminal.BasicForStatementNoShortIf);
   }
 
   @Override
   public void enterBlock(Java9Parser.BlockContext ctx) {
-    enter(NonTerminal.Block);
+    enter(JavaNonTerminal.Block);
   }
 
   @Override
   public void enterBlockStatement(Java9Parser.BlockStatementContext ctx) {
-    enter(NonTerminal.BlockStatement);
+    enter(JavaNonTerminal.BlockStatement);
   }
 
   @Override
   public void enterBlockStatements(Java9Parser.BlockStatementsContext ctx) {
-    enter(NonTerminal.BlockStatements);
+    enter(JavaNonTerminal.BlockStatements);
   }
 
   @Override
   public void enterBreakStatement(Java9Parser.BreakStatementContext ctx) {
-    enter(NonTerminal.BreakStatement);
+    enter(JavaNonTerminal.BreakStatement);
   }
 
   @Override
   public void enterCastExpression(Java9Parser.CastExpressionContext ctx) {
-    enter(NonTerminal.CastExpression);
+    enter(JavaNonTerminal.CastExpression);
   }
 
   @Override
   public void enterCatchClause(Java9Parser.CatchClauseContext ctx) {
-    enter(NonTerminal.CatchClause);
+    enter(JavaNonTerminal.CatchClause);
   }
 
   @Override
   public void enterCatchFormalParameter(Java9Parser.CatchFormalParameterContext ctx) {
-    enter(NonTerminal.CatchFormalParameter);
+    enter(JavaNonTerminal.CatchFormalParameter);
   }
 
   @Override
   public void enterCatchType(Java9Parser.CatchTypeContext ctx) {
-    enter(NonTerminal.CatchType);
+    enter(JavaNonTerminal.CatchType);
   }
 
   @Override
   public void enterCatches(Java9Parser.CatchesContext ctx) {
-    enter(NonTerminal.Catches);
+    enter(JavaNonTerminal.Catches);
   }
 
   @Override
   public void enterClassBody(Java9Parser.ClassBodyContext ctx) {
-    enter(NonTerminal.ClassBody);
+    enter(JavaNonTerminal.ClassBody);
   }
 
   @Override
   public void enterClassBodyDeclaration(Java9Parser.ClassBodyDeclarationContext ctx) {
-    enter(NonTerminal.ClassBodyDeclaration);
+    enter(JavaNonTerminal.ClassBodyDeclaration);
   }
 
   @Override
   public void enterClassDeclaration(Java9Parser.ClassDeclarationContext ctx) {
-    enter(NonTerminal.ClassDeclaration);
+    enter(JavaNonTerminal.ClassDeclaration);
   }
 
   @Override
   public void enterClassInstanceCreationExpression(Java9Parser.ClassInstanceCreationExpressionContext ctx) {
-    enter(NonTerminal.ClassInstanceCreationExpression);
+    enter(JavaNonTerminal.ClassInstanceCreationExpression);
   }
 
   @Override
   public void enterClassInstanceCreationExpression_lf_primary(Java9Parser.ClassInstanceCreationExpression_lf_primaryContext ctx) {
-    enter(NonTerminal.ClassInstanceCreationExpression_lf_primary);
+    enter(JavaNonTerminal.ClassInstanceCreationExpression_lf_primary);
   }
 
   @Override
   public void enterClassInstanceCreationExpression_lfno_primary(Java9Parser.ClassInstanceCreationExpression_lfno_primaryContext ctx) {
-    enter(NonTerminal.ClassInstanceCreationExpression_lfno_primary);
+    enter(JavaNonTerminal.ClassInstanceCreationExpression_lfno_primary);
   }
 
   @Override
   public void enterClassLiteral(Java9Parser.ClassLiteralContext ctx) {
-    enter(NonTerminal.ClassLiteral);
+    enter(JavaNonTerminal.ClassLiteral);
   }
 
   @Override
   public void enterClassMemberDeclaration(Java9Parser.ClassMemberDeclarationContext ctx) {
-    enter(NonTerminal.ClassMemberDeclaration);
+    enter(JavaNonTerminal.ClassMemberDeclaration);
   }
 
   @Override
   public void enterClassModifier(Java9Parser.ClassModifierContext ctx) {
-    enter(NonTerminal.ClassModifier);
+    enter(JavaNonTerminal.ClassModifier);
   }
 
   @Override
   public void enterClassOrInterfaceType(Java9Parser.ClassOrInterfaceTypeContext ctx) {
-    enter(NonTerminal.ClassOrInterfaceType);
+    enter(JavaNonTerminal.ClassOrInterfaceType);
   }
 
   @Override
   public void enterClassType(Java9Parser.ClassTypeContext ctx) {
-    enter(NonTerminal.ClassType);
+    enter(JavaNonTerminal.ClassType);
   }
 
   @Override
   public void enterClassType_lf_classOrInterfaceType(Java9Parser.ClassType_lf_classOrInterfaceTypeContext ctx) {
-    enter(NonTerminal.ClassType_lf_classOrInterfaceType);
+    enter(JavaNonTerminal.ClassType_lf_classOrInterfaceType);
   }
 
   @Override
   public void enterClassType_lfno_classOrInterfaceType(Java9Parser.ClassType_lfno_classOrInterfaceTypeContext ctx) {
-    enter(NonTerminal.ClassType_lfno_classOrInterfaceType);
+    enter(JavaNonTerminal.ClassType_lfno_classOrInterfaceType);
   }
 
   @Override
   public void enterCompilationUnit(Java9Parser.CompilationUnitContext ctx) {
-    enter(NonTerminal.CompilationUnit);
+    enter(JavaNonTerminal.CompilationUnit);
   }
 
   @Override
   public void enterConditionalAndExpression(Java9Parser.ConditionalAndExpressionContext ctx) {
-    enter(NonTerminal.ConditionalAndExpression);
+    enter(JavaNonTerminal.ConditionalAndExpression);
   }
 
   @Override
   public void enterConditionalExpression(Java9Parser.ConditionalExpressionContext ctx) {
-    enter(NonTerminal.ConditionalExpression);
+    enter(JavaNonTerminal.ConditionalExpression);
   }
 
   @Override
   public void enterConditionalOrExpression(Java9Parser.ConditionalOrExpressionContext ctx) {
-    enter(NonTerminal.ConditionalOrExpression);
+    enter(JavaNonTerminal.ConditionalOrExpression);
   }
 
   @Override
   public void enterConstantDeclaration(Java9Parser.ConstantDeclarationContext ctx) {
-    enter(NonTerminal.ConstantDeclaration);
+    enter(JavaNonTerminal.ConstantDeclaration);
   }
 
   @Override
   public void enterConstantExpression(Java9Parser.ConstantExpressionContext ctx) {
-    enter(NonTerminal.ConstantExpression);
+    enter(JavaNonTerminal.ConstantExpression);
   }
 
   @Override
   public void enterConstantModifier(Java9Parser.ConstantModifierContext ctx) {
-    enter(NonTerminal.ConstantModifier);
+    enter(JavaNonTerminal.ConstantModifier);
   }
 
   @Override
   public void enterConstructorBody(Java9Parser.ConstructorBodyContext ctx) {
-    enter(NonTerminal.ConstructorBody);
+    enter(JavaNonTerminal.ConstructorBody);
   }
 
   @Override
   public void enterConstructorDeclaration(Java9Parser.ConstructorDeclarationContext ctx) {
-    enter(NonTerminal.ConstructorDeclaration);
+    enter(JavaNonTerminal.ConstructorDeclaration);
   }
 
   @Override
   public void enterConstructorDeclarator(Java9Parser.ConstructorDeclaratorContext ctx) {
-    enter(NonTerminal.ConstructorDeclarator);
+    enter(JavaNonTerminal.ConstructorDeclarator);
   }
 
   @Override
   public void enterConstructorModifier(Java9Parser.ConstructorModifierContext ctx) {
-    enter(NonTerminal.ConstructorModifier);
+    enter(JavaNonTerminal.ConstructorModifier);
   }
 
   @Override
   public void enterContinueStatement(Java9Parser.ContinueStatementContext ctx) {
-    enter(NonTerminal.ContinueStatement);
+    enter(JavaNonTerminal.ContinueStatement);
   }
 
   @Override
   public void enterDefaultValue(Java9Parser.DefaultValueContext ctx) {
-    enter(NonTerminal.DefaultValue);
+    enter(JavaNonTerminal.DefaultValue);
   }
 
   @Override
   public void enterDimExpr(Java9Parser.DimExprContext ctx) {
-    enter(NonTerminal.DimExpr);
+    enter(JavaNonTerminal.DimExpr);
   }
 
   @Override
   public void enterDimExprs(Java9Parser.DimExprsContext ctx) {
-    enter(NonTerminal.DimExprs);
+    enter(JavaNonTerminal.DimExprs);
   }
 
   @Override
   public void enterDims(Java9Parser.DimsContext ctx) {
-    enter(NonTerminal.Dims);
+    enter(JavaNonTerminal.Dims);
   }
 
   @Override
   public void enterDoStatement(Java9Parser.DoStatementContext ctx) {
-    enter(NonTerminal.DoStatement);
+    enter(JavaNonTerminal.DoStatement);
   }
 
   @Override
   public void enterElementValue(Java9Parser.ElementValueContext ctx) {
-    enter(NonTerminal.ElementValue);
+    enter(JavaNonTerminal.ElementValue);
   }
 
   @Override
   public void enterElementValueArrayInitializer(Java9Parser.ElementValueArrayInitializerContext ctx) {
-    enter(NonTerminal.ElementValueArrayInitializer);
+    enter(JavaNonTerminal.ElementValueArrayInitializer);
   }
 
   @Override
   public void enterElementValueList(Java9Parser.ElementValueListContext ctx) {
-    enter(NonTerminal.ElementValueList);
+    enter(JavaNonTerminal.ElementValueList);
   }
 
   @Override
   public void enterElementValuePair(Java9Parser.ElementValuePairContext ctx) {
-    enter(NonTerminal.ElementValuePair);
+    enter(JavaNonTerminal.ElementValuePair);
   }
 
   @Override
   public void enterElementValuePairList(Java9Parser.ElementValuePairListContext ctx) {
-    enter(NonTerminal.ElementValuePairList);
+    enter(JavaNonTerminal.ElementValuePairList);
   }
 
   @Override
   public void enterEmptyStatement(Java9Parser.EmptyStatementContext ctx) {
-    enter(NonTerminal.EmptyStatement);
+    enter(JavaNonTerminal.EmptyStatement);
   }
 
   @Override
   public void enterEnhancedForStatement(Java9Parser.EnhancedForStatementContext ctx) {
-    enter(NonTerminal.EnhancedForStatement);
+    enter(JavaNonTerminal.EnhancedForStatement);
   }
 
   @Override
   public void enterEnhancedForStatementNoShortIf(Java9Parser.EnhancedForStatementNoShortIfContext ctx) {
-    enter(NonTerminal.EnhancedForStatementNoShortIf);
+    enter(JavaNonTerminal.EnhancedForStatementNoShortIf);
   }
 
   @Override
   public void enterEnumBody(Java9Parser.EnumBodyContext ctx) {
-    enter(NonTerminal.EnumBody);
+    enter(JavaNonTerminal.EnumBody);
   }
 
   @Override
   public void enterEnumBodyDeclarations(Java9Parser.EnumBodyDeclarationsContext ctx) {
-    enter(NonTerminal.EnumBodyDeclarations);
+    enter(JavaNonTerminal.EnumBodyDeclarations);
   }
 
   @Override
   public void enterEnumConstant(Java9Parser.EnumConstantContext ctx) {
-    enter(NonTerminal.EnumConstant);
+    enter(JavaNonTerminal.EnumConstant);
   }
 
   @Override
   public void enterEnumConstantList(Java9Parser.EnumConstantListContext ctx) {
-    enter(NonTerminal.EnumConstantList);
+    enter(JavaNonTerminal.EnumConstantList);
   }
 
   @Override
   public void enterEnumConstantModifier(Java9Parser.EnumConstantModifierContext ctx) {
-    enter(NonTerminal.EnumConstantModifier);
+    enter(JavaNonTerminal.EnumConstantModifier);
   }
 
   @Override
   public void enterEnumConstantName(Java9Parser.EnumConstantNameContext ctx) {
-    enter(NonTerminal.EnumConstantName);
+    enter(JavaNonTerminal.EnumConstantName);
   }
 
   @Override
   public void enterEnumDeclaration(Java9Parser.EnumDeclarationContext ctx) {
-    enter(NonTerminal.EnumDeclaration);
+    enter(JavaNonTerminal.EnumDeclaration);
   }
 
   @Override
   public void enterEqualityExpression(Java9Parser.EqualityExpressionContext ctx) {
-    enter(NonTerminal.EqualityExpression);
+    enter(JavaNonTerminal.EqualityExpression);
   }
 
   @Override
   public void enterExceptionType(Java9Parser.ExceptionTypeContext ctx) {
-    enter(NonTerminal.ExceptionType);
+    enter(JavaNonTerminal.ExceptionType);
   }
 
   @Override
   public void enterExceptionTypeList(Java9Parser.ExceptionTypeListContext ctx) {
-    enter(NonTerminal.ExceptionTypeList);
+    enter(JavaNonTerminal.ExceptionTypeList);
   }
 
   @Override
   public void enterExclusiveOrExpression(Java9Parser.ExclusiveOrExpressionContext ctx) {
-    enter(NonTerminal.ExclusiveOrExpression);
+    enter(JavaNonTerminal.ExclusiveOrExpression);
   }
 
   @Override
   public void enterExplicitConstructorInvocation(Java9Parser.ExplicitConstructorInvocationContext ctx) {
-    enter(NonTerminal.ExplicitConstructorInvocation);
+    enter(JavaNonTerminal.ExplicitConstructorInvocation);
   }
 
   @Override
   public void enterExpression(Java9Parser.ExpressionContext ctx) {
-    enter(NonTerminal.Expression);
+    enter(JavaNonTerminal.Expression);
   }
 
   @Override
   public void enterExpressionName(Java9Parser.ExpressionNameContext ctx) {
-    enter(NonTerminal.ExpressionName);
+    enter(JavaNonTerminal.ExpressionName);
   }
 
   @Override
   public void enterExpressionStatement(Java9Parser.ExpressionStatementContext ctx) {
-    enter(NonTerminal.ExpressionStatement);
+    enter(JavaNonTerminal.ExpressionStatement);
   }
 
   @Override
   public void enterExtendsInterfaces(Java9Parser.ExtendsInterfacesContext ctx) {
-    enter(NonTerminal.ExtendsInterfaces);
+    enter(JavaNonTerminal.ExtendsInterfaces);
   }
 
   @Override
   public void enterFieldAccess(Java9Parser.FieldAccessContext ctx) {
-    enter(NonTerminal.FieldAccess);
+    enter(JavaNonTerminal.FieldAccess);
   }
 
   @Override
   public void enterFieldAccess_lf_primary(Java9Parser.FieldAccess_lf_primaryContext ctx) {
-    enter(NonTerminal.FieldAccess_lf_primary);
+    enter(JavaNonTerminal.FieldAccess_lf_primary);
   }
 
   @Override
   public void enterFieldAccess_lfno_primary(Java9Parser.FieldAccess_lfno_primaryContext ctx) {
-    enter(NonTerminal.FieldAccess_lfno_primary);
+    enter(JavaNonTerminal.FieldAccess_lfno_primary);
   }
 
   @Override
   public void enterFieldDeclaration(Java9Parser.FieldDeclarationContext ctx) {
-    enter(NonTerminal.FieldDeclaration);
+    enter(JavaNonTerminal.FieldDeclaration);
   }
 
   @Override
   public void enterFieldModifier(Java9Parser.FieldModifierContext ctx) {
-    enter(NonTerminal.FieldModifier);
+    enter(JavaNonTerminal.FieldModifier);
   }
 
   @Override
   public void enterFinally_(Java9Parser.Finally_Context ctx) {
-    enter(NonTerminal.Finally_);
+    enter(JavaNonTerminal.Finally_);
   }
 
   @Override
   public void enterFloatingPointType(Java9Parser.FloatingPointTypeContext ctx) {
-    enter(NonTerminal.FloatingPointType);
+    enter(JavaNonTerminal.FloatingPointType);
   }
 
   @Override
   public void enterForInit(Java9Parser.ForInitContext ctx) {
-    enter(NonTerminal.ForInit);
+    enter(JavaNonTerminal.ForInit);
   }
 
   @Override
   public void enterForStatement(Java9Parser.ForStatementContext ctx) {
-    enter(NonTerminal.ForStatement);
+    enter(JavaNonTerminal.ForStatement);
   }
 
   @Override
   public void enterForStatementNoShortIf(Java9Parser.ForStatementNoShortIfContext ctx) {
-    enter(NonTerminal.ForStatementNoShortIf);
+    enter(JavaNonTerminal.ForStatementNoShortIf);
   }
 
   @Override
   public void enterForUpdate(Java9Parser.ForUpdateContext ctx) {
-    enter(NonTerminal.ForUpdate);
+    enter(JavaNonTerminal.ForUpdate);
   }
 
   @Override
   public void enterFormalParameter(Java9Parser.FormalParameterContext ctx) {
-    enter(NonTerminal.FormalParameter);
+    enter(JavaNonTerminal.FormalParameter);
   }
 
   @Override
   public void enterFormalParameterList(Java9Parser.FormalParameterListContext ctx) {
-    enter(NonTerminal.FormalParameterList);
+    enter(JavaNonTerminal.FormalParameterList);
   }
 
   @Override
   public void enterFormalParameters(Java9Parser.FormalParametersContext ctx) {
-    enter(NonTerminal.FormalParameters);
+    enter(JavaNonTerminal.FormalParameters);
   }
 
   @Override
   public void enterIfThenElseStatement(Java9Parser.IfThenElseStatementContext ctx) {
-    enter(NonTerminal.IfThenElseStatement);
+    enter(JavaNonTerminal.IfThenElseStatement);
   }
 
   @Override
   public void enterIfThenElseStatementNoShortIf(Java9Parser.IfThenElseStatementNoShortIfContext ctx) {
-    enter(NonTerminal.IfThenElseStatementNoShortIf);
+    enter(JavaNonTerminal.IfThenElseStatementNoShortIf);
   }
 
   @Override
   public void enterIfThenStatement(Java9Parser.IfThenStatementContext ctx) {
-    enter(NonTerminal.IfThenStatement);
+    enter(JavaNonTerminal.IfThenStatement);
   }
 
   @Override
   public void enterImportDeclaration(Java9Parser.ImportDeclarationContext ctx) {
-    enter(NonTerminal.ImportDeclaration);
+    enter(JavaNonTerminal.ImportDeclaration);
   }
 
   @Override
   public void enterInclusiveOrExpression(Java9Parser.InclusiveOrExpressionContext ctx) {
-    enter(NonTerminal.InclusiveOrExpression);
+    enter(JavaNonTerminal.InclusiveOrExpression);
   }
 
   @Override
   public void enterInferredFormalParameterList(Java9Parser.InferredFormalParameterListContext ctx) {
-    enter(NonTerminal.InferredFormalParameterList);
+    enter(JavaNonTerminal.InferredFormalParameterList);
   }
 
   @Override
   public void enterInstanceInitializer(Java9Parser.InstanceInitializerContext ctx) {
-    enter(NonTerminal.InstanceInitializer);
+    enter(JavaNonTerminal.InstanceInitializer);
   }
 
   @Override
   public void enterIntegralType(Java9Parser.IntegralTypeContext ctx) {
-    enter(NonTerminal.IntegralType);
+    enter(JavaNonTerminal.IntegralType);
   }
 
   @Override
   public void enterInterfaceBody(Java9Parser.InterfaceBodyContext ctx) {
-    enter(NonTerminal.InterfaceBody);
+    enter(JavaNonTerminal.InterfaceBody);
   }
 
   @Override
   public void enterInterfaceDeclaration(Java9Parser.InterfaceDeclarationContext ctx) {
-    enter(NonTerminal.InterfaceDeclaration);
+    enter(JavaNonTerminal.InterfaceDeclaration);
   }
 
   @Override
   public void enterInterfaceMemberDeclaration(Java9Parser.InterfaceMemberDeclarationContext ctx) {
-    enter(NonTerminal.InterfaceMemberDeclaration);
+    enter(JavaNonTerminal.InterfaceMemberDeclaration);
   }
 
   @Override
   public void enterInterfaceMethodDeclaration(Java9Parser.InterfaceMethodDeclarationContext ctx) {
-    enter(NonTerminal.InterfaceMethodDeclaration);
+    enter(JavaNonTerminal.InterfaceMethodDeclaration);
   }
 
   @Override
   public void enterInterfaceMethodModifier(Java9Parser.InterfaceMethodModifierContext ctx) {
-    enter(NonTerminal.InterfaceMethodModifier);
+    enter(JavaNonTerminal.InterfaceMethodModifier);
   }
 
   @Override
   public void enterInterfaceModifier(Java9Parser.InterfaceModifierContext ctx) {
-    enter(NonTerminal.InterfaceModifier);
+    enter(JavaNonTerminal.InterfaceModifier);
   }
 
   @Override
   public void enterInterfaceType(Java9Parser.InterfaceTypeContext ctx) {
-    enter(NonTerminal.InterfaceType);
+    enter(JavaNonTerminal.InterfaceType);
   }
 
   @Override
   public void enterInterfaceTypeList(Java9Parser.InterfaceTypeListContext ctx) {
-    enter(NonTerminal.InterfaceTypeList);
+    enter(JavaNonTerminal.InterfaceTypeList);
   }
 
   @Override
   public void enterInterfaceType_lf_classOrInterfaceType(Java9Parser.InterfaceType_lf_classOrInterfaceTypeContext ctx) {
-    enter(NonTerminal.InterfaceType_lf_classOrInterfaceType);
+    enter(JavaNonTerminal.InterfaceType_lf_classOrInterfaceType);
   }
 
   @Override
   public void enterInterfaceType_lfno_classOrInterfaceType(Java9Parser.InterfaceType_lfno_classOrInterfaceTypeContext ctx) {
-    enter(NonTerminal.InterfaceType_lfno_classOrInterfaceType);
+    enter(JavaNonTerminal.InterfaceType_lfno_classOrInterfaceType);
   }
 
   @Override
   public void enterLabeledStatement(Java9Parser.LabeledStatementContext ctx) {
-    enter(NonTerminal.LabeledStatement);
+    enter(JavaNonTerminal.LabeledStatement);
   }
 
   @Override
   public void enterLabeledStatementNoShortIf(Java9Parser.LabeledStatementNoShortIfContext ctx) {
-    enter(NonTerminal.LabeledStatementNoShortIf);
+    enter(JavaNonTerminal.LabeledStatementNoShortIf);
   }
 
   @Override
   public void enterLambdaBody(Java9Parser.LambdaBodyContext ctx) {
-    enter(NonTerminal.LambdaBody);
+    enter(JavaNonTerminal.LambdaBody);
   }
 
   @Override
   public void enterLambdaExpression(Java9Parser.LambdaExpressionContext ctx) {
-    enter(NonTerminal.LambdaExpression);
+    enter(JavaNonTerminal.LambdaExpression);
   }
 
   @Override
   public void enterLambdaParameters(Java9Parser.LambdaParametersContext ctx) {
-    enter(NonTerminal.LambdaParameters);
+    enter(JavaNonTerminal.LambdaParameters);
   }
 
   @Override
   public void enterLastFormalParameter(Java9Parser.LastFormalParameterContext ctx) {
-    enter(NonTerminal.LastFormalParameter);
+    enter(JavaNonTerminal.LastFormalParameter);
   }
 
   @Override
   public void enterLeftHandSide(Java9Parser.LeftHandSideContext ctx) {
-    enter(NonTerminal.LeftHandSide);
+    enter(JavaNonTerminal.LeftHandSide);
   }
 
   @Override
   public void enterLiteral(Java9Parser.LiteralContext ctx) {
-    enter(NonTerminal.Literal);
+    enter(JavaNonTerminal.Literal);
   }
 
   @Override
   public void enterLocalVariableDeclaration(Java9Parser.LocalVariableDeclarationContext ctx) {
-    enter(NonTerminal.LocalVariableDeclaration);
+    enter(JavaNonTerminal.LocalVariableDeclaration);
   }
 
   @Override
   public void enterLocalVariableDeclarationStatement(Java9Parser.LocalVariableDeclarationStatementContext ctx) {
-    enter(NonTerminal.LocalVariableDeclarationStatement);
+    enter(JavaNonTerminal.LocalVariableDeclarationStatement);
   }
 
   @Override
   public void enterMarkerAnnotation(Java9Parser.MarkerAnnotationContext ctx) {
-    enter(NonTerminal.MarkerAnnotation);
+    enter(JavaNonTerminal.MarkerAnnotation);
   }
 
   @Override
   public void enterMethodBody(Java9Parser.MethodBodyContext ctx) {
-    enter(NonTerminal.MethodBody);
+    enter(JavaNonTerminal.MethodBody);
   }
 
   @Override
   public void enterMethodDeclaration(Java9Parser.MethodDeclarationContext ctx) {
-    enter(NonTerminal.MethodDeclaration);
+    enter(JavaNonTerminal.MethodDeclaration);
   }
 
   @Override
   public void enterMethodDeclarator(Java9Parser.MethodDeclaratorContext ctx) {
-    enter(NonTerminal.MethodDeclarator);
+    enter(JavaNonTerminal.MethodDeclarator);
   }
 
   @Override
   public void enterMethodHeader(Java9Parser.MethodHeaderContext ctx) {
-    enter(NonTerminal.MethodHeader);
+    enter(JavaNonTerminal.MethodHeader);
   }
 
   @Override
   public void enterMethodInvocation(Java9Parser.MethodInvocationContext ctx) {
-    enter(NonTerminal.MethodInvocation);
+    enter(JavaNonTerminal.MethodInvocation);
   }
 
   @Override
   public void enterMethodInvocation_lf_primary(Java9Parser.MethodInvocation_lf_primaryContext ctx) {
-    enter(NonTerminal.MethodInvocation_lf_primary);
+    enter(JavaNonTerminal.MethodInvocation_lf_primary);
   }
 
   @Override
   public void enterMethodInvocation_lfno_primary(Java9Parser.MethodInvocation_lfno_primaryContext ctx) {
-    enter(NonTerminal.MethodInvocation_lfno_primary);
+    enter(JavaNonTerminal.MethodInvocation_lfno_primary);
   }
 
   @Override
   public void enterMethodModifier(Java9Parser.MethodModifierContext ctx) {
-    enter(NonTerminal.MethodModifier);
+    enter(JavaNonTerminal.MethodModifier);
   }
 
   @Override
   public void enterMethodName(Java9Parser.MethodNameContext ctx) {
-    enter(NonTerminal.MethodName);
+    enter(JavaNonTerminal.MethodName);
   }
 
   @Override
   public void enterMethodReference(Java9Parser.MethodReferenceContext ctx) {
-    enter(NonTerminal.MethodReference);
+    enter(JavaNonTerminal.MethodReference);
   }
 
   @Override
   public void enterMethodReference_lf_primary(Java9Parser.MethodReference_lf_primaryContext ctx) {
-    enter(NonTerminal.MethodReference_lf_primary);
+    enter(JavaNonTerminal.MethodReference_lf_primary);
   }
 
   @Override
   public void enterMethodReference_lfno_primary(Java9Parser.MethodReference_lfno_primaryContext ctx) {
-    enter(NonTerminal.MethodReference_lfno_primary);
+    enter(JavaNonTerminal.MethodReference_lfno_primary);
   }
 
   @Override
   public void enterModularCompilation(Java9Parser.ModularCompilationContext ctx) {
-    enter(NonTerminal.ModularCompilation);
+    enter(JavaNonTerminal.ModularCompilation);
   }
 
   @Override
   public void enterModuleDeclaration(Java9Parser.ModuleDeclarationContext ctx) {
-    enter(NonTerminal.ModuleDeclaration);
+    enter(JavaNonTerminal.ModuleDeclaration);
   }
 
   @Override
   public void enterModuleDirective(Java9Parser.ModuleDirectiveContext ctx) {
-    enter(NonTerminal.ModuleDirective);
+    enter(JavaNonTerminal.ModuleDirective);
   }
 
   @Override
   public void enterModuleName(Java9Parser.ModuleNameContext ctx) {
-    enter(NonTerminal.ModuleName);
+    enter(JavaNonTerminal.ModuleName);
   }
 
   @Override
   public void enterMultiplicativeExpression(Java9Parser.MultiplicativeExpressionContext ctx) {
-    enter(NonTerminal.MultiplicativeExpression);
+    enter(JavaNonTerminal.MultiplicativeExpression);
   }
 
   @Override
   public void enterNormalAnnotation(Java9Parser.NormalAnnotationContext ctx) {
-    enter(NonTerminal.NormalAnnotation);
+    enter(JavaNonTerminal.NormalAnnotation);
   }
 
   @Override
   public void enterNormalClassDeclaration(Java9Parser.NormalClassDeclarationContext ctx) {
-    enter(NonTerminal.NormalClassDeclaration);
+    enter(JavaNonTerminal.NormalClassDeclaration);
   }
 
   @Override
   public void enterNormalInterfaceDeclaration(Java9Parser.NormalInterfaceDeclarationContext ctx) {
-    enter(NonTerminal.NormalInterfaceDeclaration);
+    enter(JavaNonTerminal.NormalInterfaceDeclaration);
   }
 
   @Override
   public void enterNumericType(Java9Parser.NumericTypeContext ctx) {
-    enter(NonTerminal.NumericType);
+    enter(JavaNonTerminal.NumericType);
   }
 
   @Override
   public void enterOrdinaryCompilation(Java9Parser.OrdinaryCompilationContext ctx) {
-    enter(NonTerminal.OrdinaryCompilation);
+    enter(JavaNonTerminal.OrdinaryCompilation);
   }
 
   @Override
   public void enterPackageDeclaration(Java9Parser.PackageDeclarationContext ctx) {
-    enter(NonTerminal.PackageDeclaration);
+    enter(JavaNonTerminal.PackageDeclaration);
   }
 
   @Override
   public void enterPackageModifier(Java9Parser.PackageModifierContext ctx) {
-    enter(NonTerminal.PackageModifier);
+    enter(JavaNonTerminal.PackageModifier);
   }
 
   @Override
   public void enterPackageName(Java9Parser.PackageNameContext ctx) {
-    enter(NonTerminal.PackageName);
+    enter(JavaNonTerminal.PackageName);
   }
 
   @Override
   public void enterPackageOrTypeName(Java9Parser.PackageOrTypeNameContext ctx) {
-    enter(NonTerminal.PackageOrTypeName);
+    enter(JavaNonTerminal.PackageOrTypeName);
   }
 
   @Override
   public void enterPostDecrementExpression(Java9Parser.PostDecrementExpressionContext ctx) {
-    enter(NonTerminal.PostDecrementExpression);
+    enter(JavaNonTerminal.PostDecrementExpression);
   }
 
   @Override
   public void enterPostDecrementExpression_lf_postfixExpression(Java9Parser.PostDecrementExpression_lf_postfixExpressionContext ctx) {
-    enter(NonTerminal.PostDecrementExpression_lf_postfixExpression);
+    enter(JavaNonTerminal.PostDecrementExpression_lf_postfixExpression);
   }
 
   @Override
   public void enterPostIncrementExpression(Java9Parser.PostIncrementExpressionContext ctx) {
-    enter(NonTerminal.PostIncrementExpression);
+    enter(JavaNonTerminal.PostIncrementExpression);
   }
 
   @Override
   public void enterPostIncrementExpression_lf_postfixExpression(Java9Parser.PostIncrementExpression_lf_postfixExpressionContext ctx) {
-    enter(NonTerminal.PostIncrementExpression_lf_postfixExpression);
+    enter(JavaNonTerminal.PostIncrementExpression_lf_postfixExpression);
   }
 
   @Override
   public void enterPostfixExpression(Java9Parser.PostfixExpressionContext ctx) {
-    enter(NonTerminal.PostfixExpression);
+    enter(JavaNonTerminal.PostfixExpression);
   }
 
   @Override
   public void enterPreDecrementExpression(Java9Parser.PreDecrementExpressionContext ctx) {
-    enter(NonTerminal.PreDecrementExpression);
+    enter(JavaNonTerminal.PreDecrementExpression);
   }
 
   @Override
   public void enterPreIncrementExpression(Java9Parser.PreIncrementExpressionContext ctx) {
-    enter(NonTerminal.PreIncrementExpression);
+    enter(JavaNonTerminal.PreIncrementExpression);
   }
 
   @Override
   public void enterPrimary(Java9Parser.PrimaryContext ctx) {
-    enter(NonTerminal.Primary);
+    enter(JavaNonTerminal.Primary);
   }
 
   @Override
   public void enterPrimaryNoNewArray(Java9Parser.PrimaryNoNewArrayContext ctx) {
-    enter(NonTerminal.PrimaryNoNewArray);
+    enter(JavaNonTerminal.PrimaryNoNewArray);
   }
 
   @Override
   public void enterPrimaryNoNewArray_lf_arrayAccess(Java9Parser.PrimaryNoNewArray_lf_arrayAccessContext ctx) {
-    enter(NonTerminal.PrimaryNoNewArray_lf_arrayAccess);
+    enter(JavaNonTerminal.PrimaryNoNewArray_lf_arrayAccess);
   }
 
   @Override
   public void enterPrimaryNoNewArray_lf_primary(Java9Parser.PrimaryNoNewArray_lf_primaryContext ctx) {
-    enter(NonTerminal.PrimaryNoNewArray_lf_primary);
+    enter(JavaNonTerminal.PrimaryNoNewArray_lf_primary);
   }
 
   @Override
   public void enterPrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary(Java9Parser.PrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primaryContext ctx) {
-    enter(NonTerminal.PrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary);
+    enter(JavaNonTerminal.PrimaryNoNewArray_lf_primary_lf_arrayAccess_lf_primary);
   }
 
   @Override
   public void enterPrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary(Java9Parser.PrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primaryContext ctx) {
-    enter(NonTerminal.PrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary);
+    enter(JavaNonTerminal.PrimaryNoNewArray_lf_primary_lfno_arrayAccess_lf_primary);
   }
 
   @Override
   public void enterPrimaryNoNewArray_lfno_arrayAccess(Java9Parser.PrimaryNoNewArray_lfno_arrayAccessContext ctx) {
-    enter(NonTerminal.PrimaryNoNewArray_lfno_arrayAccess);
+    enter(JavaNonTerminal.PrimaryNoNewArray_lfno_arrayAccess);
   }
 
   @Override
   public void enterPrimaryNoNewArray_lfno_primary(Java9Parser.PrimaryNoNewArray_lfno_primaryContext ctx) {
-    enter(NonTerminal.PrimaryNoNewArray_lfno_primary);
+    enter(JavaNonTerminal.PrimaryNoNewArray_lfno_primary);
   }
 
   @Override
   public void enterPrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary(Java9Parser.PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primaryContext ctx) {
-    enter(NonTerminal.PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary);
+    enter(JavaNonTerminal.PrimaryNoNewArray_lfno_primary_lf_arrayAccess_lfno_primary);
   }
 
   @Override
   public void enterPrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary(Java9Parser.PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primaryContext ctx) {
-    enter(NonTerminal.PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary);
+    enter(JavaNonTerminal.PrimaryNoNewArray_lfno_primary_lfno_arrayAccess_lfno_primary);
   }
 
   @Override
   public void enterPrimitiveType(Java9Parser.PrimitiveTypeContext ctx) {
-    enter(NonTerminal.PrimitiveType);
+    enter(JavaNonTerminal.PrimitiveType);
   }
 
   @Override
   public void enterReceiverParameter(Java9Parser.ReceiverParameterContext ctx) {
-    enter(NonTerminal.ReceiverParameter);
+    enter(JavaNonTerminal.ReceiverParameter);
   }
 
   @Override
   public void enterReferenceType(Java9Parser.ReferenceTypeContext ctx) {
-    enter(NonTerminal.ReferenceType);
+    enter(JavaNonTerminal.ReferenceType);
   }
 
   @Override
   public void enterRelationalExpression(Java9Parser.RelationalExpressionContext ctx) {
-    enter(NonTerminal.RelationalExpression);
+    enter(JavaNonTerminal.RelationalExpression);
   }
 
   @Override
   public void enterRequiresModifier(Java9Parser.RequiresModifierContext ctx) {
-    enter(NonTerminal.RequiresModifier);
+    enter(JavaNonTerminal.RequiresModifier);
   }
 
   @Override
   public void enterResource(Java9Parser.ResourceContext ctx) {
-    enter(NonTerminal.Resource);
+    enter(JavaNonTerminal.Resource);
   }
 
   @Override
   public void enterResourceList(Java9Parser.ResourceListContext ctx) {
-    enter(NonTerminal.ResourceList);
+    enter(JavaNonTerminal.ResourceList);
   }
 
   @Override
   public void enterResourceSpecification(Java9Parser.ResourceSpecificationContext ctx) {
-    enter(NonTerminal.ResourceSpecification);
+    enter(JavaNonTerminal.ResourceSpecification);
   }
 
   @Override
   public void enterResult(Java9Parser.ResultContext ctx) {
-    enter(NonTerminal.Result);
+    enter(JavaNonTerminal.Result);
   }
 
   @Override
   public void enterReturnStatement(Java9Parser.ReturnStatementContext ctx) {
-    enter(NonTerminal.ReturnStatement);
+    enter(JavaNonTerminal.ReturnStatement);
   }
 
   @Override
   public void enterShiftExpression(Java9Parser.ShiftExpressionContext ctx) {
-    enter(NonTerminal.ShiftExpression);
+    enter(JavaNonTerminal.ShiftExpression);
   }
 
   @Override
   public void enterSimpleTypeName(Java9Parser.SimpleTypeNameContext ctx) {
-    enter(NonTerminal.SimpleTypeName);
+    enter(JavaNonTerminal.SimpleTypeName);
   }
 
   @Override
   public void enterSingleElementAnnotation(Java9Parser.SingleElementAnnotationContext ctx) {
-    enter(NonTerminal.SingleElementAnnotation);
+    enter(JavaNonTerminal.SingleElementAnnotation);
   }
 
   @Override
   public void enterSingleStaticImportDeclaration(Java9Parser.SingleStaticImportDeclarationContext ctx) {
-    enter(NonTerminal.SingleStaticImportDeclaration);
+    enter(JavaNonTerminal.SingleStaticImportDeclaration);
   }
 
   @Override
   public void enterSingleTypeImportDeclaration(Java9Parser.SingleTypeImportDeclarationContext ctx) {
-    enter(NonTerminal.SingleTypeImportDeclaration);
+    enter(JavaNonTerminal.SingleTypeImportDeclaration);
   }
 
   @Override
   public void enterStatement(Java9Parser.StatementContext ctx) {
-    enter(NonTerminal.Statement);
+    enter(JavaNonTerminal.Statement);
   }
 
   @Override
   public void enterStatementExpression(Java9Parser.StatementExpressionContext ctx) {
-    enter(NonTerminal.StatementExpression);
+    enter(JavaNonTerminal.StatementExpression);
   }
 
   @Override
   public void enterStatementExpressionList(Java9Parser.StatementExpressionListContext ctx) {
-    enter(NonTerminal.StatementExpressionList);
+    enter(JavaNonTerminal.StatementExpressionList);
   }
 
   @Override
   public void enterStatementNoShortIf(Java9Parser.StatementNoShortIfContext ctx) {
-    enter(NonTerminal.StatementNoShortIf);
+    enter(JavaNonTerminal.StatementNoShortIf);
   }
 
   @Override
   public void enterStatementWithoutTrailingSubstatement(Java9Parser.StatementWithoutTrailingSubstatementContext ctx) {
-    enter(NonTerminal.StatementWithoutTrailingSubstatement);
+    enter(JavaNonTerminal.StatementWithoutTrailingSubstatement);
   }
 
   @Override
   public void enterStaticImportOnDemandDeclaration(Java9Parser.StaticImportOnDemandDeclarationContext ctx) {
-    enter(NonTerminal.StaticImportOnDemandDeclaration);
+    enter(JavaNonTerminal.StaticImportOnDemandDeclaration);
   }
 
   @Override
   public void enterStaticInitializer(Java9Parser.StaticInitializerContext ctx) {
-    enter(NonTerminal.StaticInitializer);
+    enter(JavaNonTerminal.StaticInitializer);
   }
 
   @Override
   public void enterSuperclass(Java9Parser.SuperclassContext ctx) {
-    enter(NonTerminal.Superclass);
+    enter(JavaNonTerminal.Superclass);
   }
 
   @Override
   public void enterSuperinterfaces(Java9Parser.SuperinterfacesContext ctx) {
-    enter(NonTerminal.Superinterfaces);
+    enter(JavaNonTerminal.Superinterfaces);
   }
 
   @Override
   public void enterSwitchBlock(Java9Parser.SwitchBlockContext ctx) {
-    enter(NonTerminal.SwitchBlock);
+    enter(JavaNonTerminal.SwitchBlock);
   }
 
   @Override
   public void enterSwitchBlockStatementGroup(Java9Parser.SwitchBlockStatementGroupContext ctx) {
-    enter(NonTerminal.SwitchBlockStatementGroup);
+    enter(JavaNonTerminal.SwitchBlockStatementGroup);
   }
 
   @Override
   public void enterSwitchLabel(Java9Parser.SwitchLabelContext ctx) {
-    enter(NonTerminal.SwitchLabel);
+    enter(JavaNonTerminal.SwitchLabel);
   }
 
   @Override
   public void enterSwitchLabels(Java9Parser.SwitchLabelsContext ctx) {
-    enter(NonTerminal.SwitchLabels);
+    enter(JavaNonTerminal.SwitchLabels);
   }
 
   @Override
   public void enterSwitchStatement(Java9Parser.SwitchStatementContext ctx) {
-    enter(NonTerminal.SwitchStatement);
+    enter(JavaNonTerminal.SwitchStatement);
   }
 
   @Override
   public void enterSynchronizedStatement(Java9Parser.SynchronizedStatementContext ctx) {
-    enter(NonTerminal.SynchronizedStatement);
+    enter(JavaNonTerminal.SynchronizedStatement);
   }
 
   @Override
   public void enterThrowStatement(Java9Parser.ThrowStatementContext ctx) {
-    enter(NonTerminal.ThrowStatement);
+    enter(JavaNonTerminal.ThrowStatement);
   }
 
   @Override
   public void enterThrows_(Java9Parser.Throws_Context ctx) {
-    enter(NonTerminal.Throws_);
+    enter(JavaNonTerminal.Throws_);
   }
 
   @Override
   public void enterTryStatement(Java9Parser.TryStatementContext ctx) {
-    enter(NonTerminal.TryStatement);
+    enter(JavaNonTerminal.TryStatement);
   }
 
   @Override
   public void enterTryWithResourcesStatement(Java9Parser.TryWithResourcesStatementContext ctx) {
-    enter(NonTerminal.TryWithResourcesStatement);
+    enter(JavaNonTerminal.TryWithResourcesStatement);
   }
 
   @Override
   public void enterType(Java9Parser.TypeContext ctx) {
-    enter(NonTerminal.Type);
+    enter(JavaNonTerminal.Type);
   }
 
   @Override
   public void enterTypeArgument(Java9Parser.TypeArgumentContext ctx) {
-    enter(NonTerminal.TypeArgument);
+    enter(JavaNonTerminal.TypeArgument);
   }
 
   @Override
   public void enterTypeArgumentList(Java9Parser.TypeArgumentListContext ctx) {
-    enter(NonTerminal.TypeArgumentList);
+    enter(JavaNonTerminal.TypeArgumentList);
   }
 
   @Override
   public void enterTypeArguments(Java9Parser.TypeArgumentsContext ctx) {
-    enter(NonTerminal.TypeArguments);
+    enter(JavaNonTerminal.TypeArguments);
   }
 
   @Override
   public void enterTypeArgumentsOrDiamond(Java9Parser.TypeArgumentsOrDiamondContext ctx) {
-    enter(NonTerminal.TypeArgumentsOrDiamond);
+    enter(JavaNonTerminal.TypeArgumentsOrDiamond);
   }
 
   @Override
   public void enterTypeBound(Java9Parser.TypeBoundContext ctx) {
-    enter(NonTerminal.TypeBound);
+    enter(JavaNonTerminal.TypeBound);
   }
 
   @Override
   public void enterTypeDeclaration(Java9Parser.TypeDeclarationContext ctx) {
-    enter(NonTerminal.TypeDeclaration);
+    enter(JavaNonTerminal.TypeDeclaration);
   }
 
   @Override
   public void enterTypeImportOnDemandDeclaration(Java9Parser.TypeImportOnDemandDeclarationContext ctx) {
-    enter(NonTerminal.TypeImportOnDemandDeclaration);
+    enter(JavaNonTerminal.TypeImportOnDemandDeclaration);
   }
 
   @Override
   public void enterTypeName(Java9Parser.TypeNameContext ctx) {
-    enter(NonTerminal.TypeName);
+    enter(JavaNonTerminal.TypeName);
   }
 
   @Override
   public void enterTypeParameter(Java9Parser.TypeParameterContext ctx) {
-    enter(NonTerminal.TypeParameter);
+    enter(JavaNonTerminal.TypeParameter);
   }
 
   @Override
   public void enterTypeParameterList(Java9Parser.TypeParameterListContext ctx) {
-    enter(NonTerminal.TypeParameterList);
+    enter(JavaNonTerminal.TypeParameterList);
   }
 
   @Override
   public void enterTypeParameterModifier(Java9Parser.TypeParameterModifierContext ctx) {
-    enter(NonTerminal.TypeParameterModifier);
+    enter(JavaNonTerminal.TypeParameterModifier);
   }
 
   @Override
   public void enterTypeParameters(Java9Parser.TypeParametersContext ctx) {
-    enter(NonTerminal.TypeParameters);
+    enter(JavaNonTerminal.TypeParameters);
   }
 
   @Override
   public void enterTypeVariable(Java9Parser.TypeVariableContext ctx) {
-    enter(NonTerminal.TypeVariable);
+    enter(JavaNonTerminal.TypeVariable);
   }
 
   @Override
   public void enterUnannArrayType(Java9Parser.UnannArrayTypeContext ctx) {
-    enter(NonTerminal.UnannArrayType);
+    enter(JavaNonTerminal.UnannArrayType);
   }
 
   @Override
   public void enterUnannClassOrInterfaceType(Java9Parser.UnannClassOrInterfaceTypeContext ctx) {
-    enter(NonTerminal.UnannClassOrInterfaceType);
+    enter(JavaNonTerminal.UnannClassOrInterfaceType);
   }
 
   @Override
   public void enterUnannClassType(Java9Parser.UnannClassTypeContext ctx) {
-    enter(NonTerminal.UnannClassType);
+    enter(JavaNonTerminal.UnannClassType);
   }
 
   @Override
   public void enterUnannClassType_lf_unannClassOrInterfaceType(Java9Parser.UnannClassType_lf_unannClassOrInterfaceTypeContext ctx) {
-    enter(NonTerminal.UnannClassType_lf_unannClassOrInterfaceType);
+    enter(JavaNonTerminal.UnannClassType_lf_unannClassOrInterfaceType);
   }
 
   @Override
   public void enterUnannClassType_lfno_unannClassOrInterfaceType(Java9Parser.UnannClassType_lfno_unannClassOrInterfaceTypeContext ctx) {
-    enter(NonTerminal.UnannClassType_lfno_unannClassOrInterfaceType);
+    enter(JavaNonTerminal.UnannClassType_lfno_unannClassOrInterfaceType);
   }
 
   @Override
   public void enterUnannInterfaceType(Java9Parser.UnannInterfaceTypeContext ctx) {
-    enter(NonTerminal.UnannInterfaceType);
+    enter(JavaNonTerminal.UnannInterfaceType);
   }
 
   @Override
   public void enterUnannInterfaceType_lf_unannClassOrInterfaceType(Java9Parser.UnannInterfaceType_lf_unannClassOrInterfaceTypeContext ctx) {
-    enter(NonTerminal.UnannInterfaceType_lf_unannClassOrInterfaceType);
+    enter(JavaNonTerminal.UnannInterfaceType_lf_unannClassOrInterfaceType);
   }
 
   @Override
   public void enterUnannInterfaceType_lfno_unannClassOrInterfaceType(Java9Parser.UnannInterfaceType_lfno_unannClassOrInterfaceTypeContext ctx) {
-    enter(NonTerminal.UnannInterfaceType_lfno_unannClassOrInterfaceType);
+    enter(JavaNonTerminal.UnannInterfaceType_lfno_unannClassOrInterfaceType);
   }
 
   @Override
   public void enterUnannPrimitiveType(Java9Parser.UnannPrimitiveTypeContext ctx) {
-    enter(NonTerminal.UnannPrimitiveType);
+    enter(JavaNonTerminal.UnannPrimitiveType);
   }
 
   @Override
   public void enterUnannReferenceType(Java9Parser.UnannReferenceTypeContext ctx) {
-    enter(NonTerminal.UnannReferenceType);
+    enter(JavaNonTerminal.UnannReferenceType);
   }
 
   @Override
   public void enterUnannType(Java9Parser.UnannTypeContext ctx) {
-    enter(NonTerminal.UnannType);
+    enter(JavaNonTerminal.UnannType);
   }
 
   @Override
   public void enterUnannTypeVariable(Java9Parser.UnannTypeVariableContext ctx) {
-    enter(NonTerminal.UnannTypeVariable);
+    enter(JavaNonTerminal.UnannTypeVariable);
   }
 
   @Override
   public void enterUnaryExpression(Java9Parser.UnaryExpressionContext ctx) {
-    enter(NonTerminal.UnaryExpression);
+    enter(JavaNonTerminal.UnaryExpression);
   }
 
   @Override
   public void enterUnaryExpressionNotPlusMinus(Java9Parser.UnaryExpressionNotPlusMinusContext ctx) {
-    enter(NonTerminal.UnaryExpressionNotPlusMinus);
+    enter(JavaNonTerminal.UnaryExpressionNotPlusMinus);
   }
 
   @Override
   public void enterVariableAccess(Java9Parser.VariableAccessContext ctx) {
-    enter(NonTerminal.VariableAccess);
+    enter(JavaNonTerminal.VariableAccess);
   }
 
   @Override
   public void enterVariableDeclarator(Java9Parser.VariableDeclaratorContext ctx) {
-    enter(NonTerminal.VariableDeclarator);
+    enter(JavaNonTerminal.VariableDeclarator);
   }
 
   @Override
   public void enterVariableDeclaratorId(Java9Parser.VariableDeclaratorIdContext ctx) {
-    enter(NonTerminal.VariableDeclaratorId);
+    enter(JavaNonTerminal.VariableDeclaratorId);
   }
 
   @Override
   public void enterVariableDeclaratorList(Java9Parser.VariableDeclaratorListContext ctx) {
-    enter(NonTerminal.VariableDeclaratorList);
+    enter(JavaNonTerminal.VariableDeclaratorList);
   }
 
   @Override
   public void enterVariableInitializer(Java9Parser.VariableInitializerContext ctx) {
-    enter(NonTerminal.VariableInitializer);
+    enter(JavaNonTerminal.VariableInitializer);
   }
 
   @Override
   public void enterVariableInitializerList(Java9Parser.VariableInitializerListContext ctx) {
-    enter(NonTerminal.VariableInitializerList);
+    enter(JavaNonTerminal.VariableInitializerList);
   }
 
   @Override
   public void enterVariableModifier(Java9Parser.VariableModifierContext ctx) {
-    enter(NonTerminal.VariableModifier);
+    enter(JavaNonTerminal.VariableModifier);
   }
 
   @Override
   public void enterWhileStatement(Java9Parser.WhileStatementContext ctx) {
-    enter(NonTerminal.WhileStatement);
+    enter(JavaNonTerminal.WhileStatement);
   }
 
   @Override
   public void enterWhileStatementNoShortIf(Java9Parser.WhileStatementNoShortIfContext ctx) {
-    enter(NonTerminal.WhileStatementNoShortIf);
+    enter(JavaNonTerminal.WhileStatementNoShortIf);
   }
 
   @Override
   public void enterWildcard(Java9Parser.WildcardContext ctx) {
-    enter(NonTerminal.Wildcard);
+    enter(JavaNonTerminal.Wildcard);
   }
 
   @Override
   public void enterWildcardBounds(Java9Parser.WildcardBoundsContext ctx) {
-    enter(NonTerminal.WildcardBounds);
+    enter(JavaNonTerminal.WildcardBounds);
   }
 }
