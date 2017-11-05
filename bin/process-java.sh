@@ -1,8 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
-java -Xms128m -Xmx512m \
-    -classpath ../lib/antlr-4.5-complete.jar:../lib/aptell.jar \
-    aptell.java.Processor $1 $2 `find "$1" -name "*.java"`
+java -server -d64 \
+     -Xshare:off -XX:+UseCompressedOops \
+     -XX:+AggressiveOpts -XX:+DoEscapeAnalysis \
+     -Xms128M -Xmx4G -XX:+UseParallelGC -XX:+UseParallelOldGC \
+     -classpath lib/antlr-4.7-complete.jar:lib/aptell.jar \
+     aptell.antlr4.JavaProcessor $1 $2
 
 # Running
-# ./process-java.sh srcDir targetDir
+# bin/process-java.sh srcDir targetDir
