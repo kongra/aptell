@@ -21,9 +21,16 @@ library
                        -fwarn-tabs
 
   hs-source-dirs:      src/hs/lib
-  exposed-modules:
+
+  exposed-modules:     Aptell.Aptl
 
   build-depends:       base >= 4.7 && < 5
+                     , binary
+                     , bytestring
+                     , containers
+                     , text
+                     , unordered-containers
+
   default-language:    Haskell2010
 
 executable aptell-exe
@@ -39,6 +46,7 @@ executable aptell-exe
                        -threaded -rtsopts -with-rtsopts=-N
 
   build-depends:       base
+                     , aptell
   default-language:    Haskell2010
 
 test-suite aptell-test
