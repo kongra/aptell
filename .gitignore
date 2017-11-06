@@ -1,3 +1,6 @@
 classes/
 lib/aptell.jar
 .stack-work/
+.Rproj.user
+.Rhistory
+.RData
