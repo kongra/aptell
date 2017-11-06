@@ -26,6 +26,7 @@ library
                      , Aptell.Aptl.Algo
                      , Aptell.Aptl.Java
                      , Aptell.Aptl.Print
+                     , Aptell.Tools
 
   build-depends:       base >= 4.7 && < 5
                      , binary
@@ -33,6 +34,7 @@ library
                      , conduit
                      , conduit-combinators
                      , containers
+                     , filepath
                      , kask
                      , mtl
                      , text

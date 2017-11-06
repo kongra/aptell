@@ -10,17 +10,15 @@
 ------------------------------------------------------------------------
 module Aptell.Tools
     (
-      test1
+      doAptlFiles
     )
     where
 
 import Conduit
+import System.FilePath (takeExtension)
 
-wc :: Monad m => Consumer FilePath m Int
-wc = lengthC
-
-test1 :: IO ()
-test1 = runResourceT (sourceDirectoryDeep False "." $$ wc) >>= print
-
--- test2 :: MonadResource m => Producer m FilePath
--- test2 = sourceDirectoryDeep False "."
+doAptlFiles :: FilePath ->  (FilePath -> IO ()) -> IO ()
+doAptlFiles dir body = runConduitRes
+                     $ sourceDirectoryDeep True dir
+                    .| filterC (\fp -> takeExtension fp == ".aptl")
+                    .| mapM_C (liftIO . body)
