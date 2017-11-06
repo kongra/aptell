@@ -12,5 +12,4 @@
 module Main (main) where
 
 main :: IO ()
-main = do
-  print "aptell's up and running"
+main = print "aptell's up and running"

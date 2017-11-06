@@ -16,7 +16,6 @@ module Aptell.Aptl
     )
     where
 
-import           Control.Monad (liftM)
 import qualified Data.Binary.Get      as G
 import qualified Data.ByteString.Lazy as B
 import qualified Data.HashMap.Strict  as M
@@ -50,10 +49,10 @@ type Code2Rule a = Int -> a
 
 -- | Reads Aptl file (given as its path) and returns its representation.
 parseForest :: Code2Rule a -> String -> IO [Node a]
-parseForest c2r file = liftM (hierarchy M.empty . reverse) (flatNodes c2r file)
+parseForest c2r file = fmap (hierarchy M.empty . reverse) (flatNodes c2r file)
 
 flatNodes :: Code2Rule a -> String -> IO [(Int, Node a)]
-flatNodes c2r file = liftM (G.runGet (getFlatNodes c2r)) (B.readFile file)
+flatNodes c2r file = fmap (G.runGet (getFlatNodes c2r)) (B.readFile file)
 {-# INLINE flatNodes #-}
 
 getFlatNodes :: Code2Rule a -> G.Get [(Int, Node a)]
@@ -76,7 +75,7 @@ getFlatNodes c2r = do
 
         _ -> return $! NonTerminal (c2r (fromIntegral code)) []
 
-      liftM ((fromIntegral level, node):) (getFlatNodes c2r)
+      fmap ((fromIntegral level, node):) (getFlatNodes c2r)
 
 type Level2Children a = M.HashMap Int [Node a]
 
@@ -86,7 +85,7 @@ hierarchy l2ch ((level, node):ns) = hierarchy l2ch2 ns
   where
     -- 1. Update node with children; nodes for current level
     node' = case node of
-      Terminal _ _ _   -> node
+      Terminal    {}   -> node
       NonTerminal nr _ -> NonTerminal nr (M.lookupDefault [] level l2ch)
 
     -- 2. Clear children for current level

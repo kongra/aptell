@@ -37,6 +37,10 @@ resolver: lts-9.11
 # will not be run. This is useful for tweaking upstream packages.
 packages:
 - .
+- location:
+    git: https://github.com/kongra/kask.git
+    commit: ff69e08780e847ad2817d59f518ff44df794f84f
+
 # Dependency packages to be pulled from upstream that are not in the resolver
 # (e.g., acme-missiles-0.3)
 extra-deps: []

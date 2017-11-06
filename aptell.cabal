@@ -23,11 +23,15 @@ library
   hs-source-dirs:      src/hs/lib
 
   exposed-modules:     Aptell.Aptl
+                     , Aptell.Aptl.Java
+                     , Aptell.Aptl.Print
 
   build-depends:       base >= 4.7 && < 5
                      , binary
                      , bytestring
                      , containers
+                     , kask
+                     , mtl
                      , text
                      , unordered-containers
 
