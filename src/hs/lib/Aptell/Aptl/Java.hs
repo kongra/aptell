@@ -107,7 +107,6 @@ data Rule =
   | ElementValuePairs
   | EnhancedForControl
   | EnumConstants
-  | EveryRule
   | ExplicitGenericInvocation
   | ExplicitGenericInvocationSuffix
   | ExpressionList
@@ -398,7 +397,6 @@ javaRule 74  = Creator
 javaRule 75  = ElementValuePairs
 javaRule 76  = EnhancedForControl
 javaRule 77  = EnumConstants
-javaRule 78  = EveryRule
 javaRule 79  = ExplicitGenericInvocation
 javaRule 80  = ExplicitGenericInvocationSuffix
 javaRule 81  = ExpressionList

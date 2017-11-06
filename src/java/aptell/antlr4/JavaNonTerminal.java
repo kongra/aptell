@@ -82,7 +82,6 @@ public enum JavaNonTerminal {
   ElementValuePairs(75),
   EnhancedForControl(76),
   EnumConstants(77),
-  EveryRule(78),
   ExplicitGenericInvocation(79),
   ExplicitGenericInvocationSuffix(80),
   ExpressionList(81),

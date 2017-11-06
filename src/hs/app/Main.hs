@@ -11,5 +11,7 @@
 ------------------------------------------------------------------------
 module Main (main) where
 
+import Aptell.Aptl.Java (printFile)
+
 main :: IO ()
-main = print "aptell's up and running"
+main = printFile "/home/kongra/Pulpit/String.java.aptl"

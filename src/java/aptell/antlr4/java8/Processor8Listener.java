@@ -557,8 +557,4 @@ public class Processor8Listener extends Java8ParserBaseListener {
     enter(JavaNonTerminal.Arguments);
   }
 
-  @Override
-  public void enterEveryRule(ParserRuleContext ctx) {
-    enter(JavaNonTerminal.EveryRule);
-  }
 }
