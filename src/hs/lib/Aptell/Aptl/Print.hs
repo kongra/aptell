@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------
 -- |
 -- Module      : Aptell.Aptl.Print
--- Copyright   : (c) 2015 Konrad Grzanek
+-- Copyright   : (c) Konrad Grzanek
 -- License     : BSD-style (see the file LICENSE)
 -- Created     : 2015-04-10
 -- Maintainer  : kongra@gmail.com

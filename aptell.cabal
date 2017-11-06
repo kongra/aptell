@@ -23,6 +23,7 @@ library
   hs-source-dirs:      src/hs/lib
 
   exposed-modules:     Aptell.Aptl
+                     , Aptell.Aptl.Algo
                      , Aptell.Aptl.Java
                      , Aptell.Aptl.Print
 

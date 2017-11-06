@@ -2,7 +2,7 @@
 ------------------------------------------------------------------------
 -- |
 -- Module      : Aptell.Aptl
--- Copyright   : (c) 2015 Konrad Grzanek
+-- Copyright   : (c) Konrad Grzanek
 -- License     : BSD-style (see the file LICENSE)
 -- Created     : 2015-04-02
 -- Maintainer  : kongra@gmail.com
