@@ -10,15 +10,15 @@
 ------------------------------------------------------------------------
 module Aptell.Tools
     (
-      doAptlFiles
+      forAptlFiles
     )
     where
 
 import Conduit
 import System.FilePath (takeExtension)
 
-doAptlFiles :: FilePath ->  (FilePath -> IO ()) -> IO ()
-doAptlFiles dir body = runConduitRes
-                     $ sourceDirectoryDeep True dir
-                    .| filterC (\fp -> takeExtension fp == ".aptl")
-                    .| mapM_C (liftIO . body)
+forAptlFiles :: FilePath ->  (FilePath -> IO ()) -> IO ()
+forAptlFiles dir body = runConduitRes
+                      $ sourceDirectoryDeep True dir
+                     .| filterC (\fp -> takeExtension fp == ".aptl")
+                     .| mapM_C (liftIO . body)

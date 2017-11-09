@@ -11,12 +11,12 @@
 ------------------------------------------------------------------------
 module Main (main) where
 
-import Aptell.Tools     (doAptlFiles)
+import Aptell.Tools     (forAptlFiles)
 import Aptell.Aptl.Java (parseTree)
 import Aptell.Aptl.Algo (treeSize)
 
 main :: IO ()
-main = doAptlFiles "/home/kongra/Pulpit/JDK9/aptl" $ \f -> do
+main = forAptlFiles "/home/kongra/Pulpit/JDK9/aptl" $ \f -> do
   node <- parseTree f
   let s = treeSize node
   putStrLn (f ++ "," ++ (show s))
