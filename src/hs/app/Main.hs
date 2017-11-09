@@ -19,4 +19,4 @@ main :: IO ()
 main = forAptlFiles "/home/kongra/Pulpit/JDK9/aptl" $ \f -> do
   node <- parseTree f
   let s = treeSize node
-  putStrLn (f ++ "," ++ (show s))
+  putStrLn (f ++ "," ++ show s)
