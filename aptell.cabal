@@ -26,7 +26,7 @@ library
                      , Aptell.Aptl.Algo
                      , Aptell.Aptl.Java
                      , Aptell.Aptl.Print
-                     , Aptell.Tools
+                     , Aptell.IO
 
   build-depends:       base >= 4.7 && < 5
                      , binary

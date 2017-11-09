@@ -37,11 +37,6 @@ data Node a =
   , nodeChildren :: ![Node a]
   }
 
--- isTerminal :: Node a -> Bool
--- isTerminal Terminal    {} = True
--- isTerminal NonTerminal {} = False
--- {-# INLINE isTerminal #-}
-
 -- DE-SERIALIZATION OF ANTLR PARSE-TREES
 
 -- | Returns a rule representation for a given integral code.

@@ -19,5 +19,5 @@ import Data.List (foldl')
 
 treeSize :: Node a -> Int
 treeSize Terminal    {} = 1
-treeSize NonTerminal { nodeChildren = children} = v `seq` v where
-  v = 1 + foldl' (+) 0 (fmap treeSize children)
+treeSize NonTerminal { nodeChildren = children} =
+  1 + foldl' (+) 0 (fmap treeSize children)
