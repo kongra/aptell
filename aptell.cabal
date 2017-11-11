@@ -30,10 +30,12 @@ library
 
   build-depends:       base >= 4.7 && < 5
                      , binary
+                     , binary-strict
                      , bytestring
                      , conduit
                      , conduit-combinators
                      , containers
+                     , deepseq
                      , filepath
                      , kask
                      , mtl
