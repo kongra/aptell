@@ -11,19 +11,19 @@
 ------------------------------------------------------------------------
 module Main (main) where
 
--- import Aptell.Aptl.Algo (treeSize)
+import Aptell.Aptl.Algo (treeSize)
 import Aptell.Aptl.Java (parseTree)
 import qualified Aptell.IO as AIO
 
 main :: IO ()
-main = do
-  trees <- AIO.mapAptlFiles "/home/kongra/Pulpit/JDK9/aptl" $ \f -> do
-    putStrLn  f
-    parseTree f
+-- main = do
+--   trees <- AIO.mapAptlFiles "/home/kongra/Pulpit/JDK9/aptl" $ \f -> do
+--     putStrLn  f
+--     parseTree f
 
-  print (length trees)
+--   print (length trees)
 
--- main = AIO.forAptlFiles "/home/kongra/Pulpit/JDK9/aptl" $ \f -> do
---   node <- parseTree f
---   let s = treeSize node
---   putStrLn (f ++ "," ++ show s)
+main = AIO.forAptlFiles "/home/kongra/Pulpit/JDK9/aptl" $ \f -> do
+  node <- parseTree f
+  let s = treeSize node
+  putStrLn (f ++ "," ++ show s)
