@@ -1,5 +1,6 @@
 classes/
 lib/aptell.jar
+target/
 .stack-work/
 .Rproj.user
 .Rhistory
