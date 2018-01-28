@@ -7,13 +7,13 @@
                 :url  "http://www.eclipse.org/legal/epl-v10.html"}
 
   :dependencies [[org.clojure/clojure      "1.9.0"]
-                 [org.clojure/core.async "0.3.465"]
+                 [org.clojure/core.async "0.4.474"]
 
                  [com.taoensso/timbre     "4.10.0"]
                  [primitive-math           "0.1.6"]
                  [org.antlr/antlr4         "4.7.1"]
 
-                 [kongra/prelude           "0.1.9"]
+                 [kongra/prelude          "0.1.10"]
                  [kongra/ch                "0.1.8"]]
 
   :profiles     {:repl {:plugins      [[lein-nodisassemble       "0.1.3"]
@@ -43,9 +43,9 @@
 
                        "-Xms4G"
                        "-Xmx4G"
-                       "-XX:+UseParallelGC"
-                       "-XX:+UseParallelOldGC"
 
+                       ;; "-XX:+UseParallelGC"
+                       ;; "-XX:+UseParallelOldGC"
                        ;; "-XX:-UseAdaptiveSizePolicy"
                        ;; "-XX:NewSize=400m"
                        ;; "-XX:MaxNewSize=400m"
