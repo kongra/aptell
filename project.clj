@@ -32,7 +32,6 @@
   :pedantic? :warn
 
   :jvm-opts ^:replace ["-server"
-                       "-d64"
                        "-Dclojure.compiler.direct-linking=true"
 
                        "-Xshare:off"
