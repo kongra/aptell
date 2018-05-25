@@ -17,7 +17,7 @@
                  [kongra/ch                "0.1.8"]]
 
   :profiles     {:repl {:plugins      [[lein-nodisassemble       "0.1.3"]
-                                       [cider/cider-nrepl       "0.16.0"]]
+                                       [cider/cider-nrepl       "0.17.0"]]
                         :dependencies [[org.clojure/tools.nrepl "0.2.13"]]}}
   :aot          :all
 
