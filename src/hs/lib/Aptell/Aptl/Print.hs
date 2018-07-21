@@ -1,5 +1,6 @@
 {-# LANGUAGE Safe             #-}
 {-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE MonoLocalBinds   #-}
 ------------------------------------------------------------------------
 -- |
 -- Module      : Aptell.Aptl.Print

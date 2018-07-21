@@ -23,7 +23,7 @@ main :: IO ()
 
 --   print (length trees)
 
-main = AIO.forAptlFiles "/home/kongra/Pulpit/JDK9/aptl" $ \f -> do
+main = AIO.forAptlFiles "/home/kongra/Pulpit/JDK-10/aptl" $ \f -> do
   node <- parseTree f
   let s = treeSize node
   putStrLn (f ++ "," ++ show s)

@@ -1,4 +1,4 @@
-{-# LANGUAGE Trustworthy #-}
+{-# LANGUAGE Safe #-}
 ------------------------------------------------------------------------
 -- |
 -- Module      : Aptell.Aptl
@@ -16,11 +16,11 @@ module Aptell.Aptl
     )
     where
 
-import qualified Data.Binary.Strict.Get as G
-import qualified Data.ByteString        as B
-import qualified Data.HashMap.Strict    as M
-import qualified Data.Text              as T
-import qualified Data.Text.Encoding     as E
+import qualified Data.Binary.Get      as G
+import qualified Data.ByteString.Lazy as B
+import qualified Data.HashMap.Strict  as M
+import qualified Data.Text            as T
+import qualified Data.Text.Encoding   as E
 
 -- | Unified parse-tree node.
 data Node a =
@@ -49,10 +49,12 @@ parseForest c2r file = fmap (hierarchy M.empty . reverse) (flatNodes c2r file)
 flatNodes :: Code2Rule a -> String -> IO [(Int, Node a)]
 flatNodes c2r file = do
   bs <- B.readFile file
-  let (result, _) = G.runGet (getFlatNodes c2r) bs
-  case result of
-    Left   msg   -> error("aptell ERROR (2): " ++ msg)
-    Right  nodes -> return nodes
+  return (G.runGet (getFlatNodes c2r) bs)
+
+  -- let (result, _) =
+  -- case result of
+  --   Left   msg   -> error("aptell ERROR (2): " ++ msg)
+  --   Right  nodes -> return nodes
 
 getFlatNodes :: Code2Rule a -> G.Get [(Int, Node a)]
 getFlatNodes c2r = do
